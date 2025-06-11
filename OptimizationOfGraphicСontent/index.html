@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Оптимізація зображень</title>
+</head>
+<body>
+    <h1>Оптимізація графічного контенту</h1>
+
+    <!-- Адаптивні зображення з WebP та fallback JPEG -->
+    <picture>
+        <source
+            srcset="
+                images/photo-small.webp 640w,
+                images/photo-medium.webp 1280w,
+                images/photo-large.webp 1920w"
+            sizes="(max-width: 640px) 100vw,
+                   (max-width: 1280px) 50vw,
+                   1920px"
+            type="image/webp"
+        >
+        <source
+            srcset="
+                images/photo-small.jpg 640w,
+                images/photo-medium.jpg 1280w,
+                images/photo-large.jpg 1920w"
+            sizes="(max-width: 640px) 100vw,
+                   (max-width: 1280px) 50vw,
+                   1920px"
+            type="image/jpeg"
+        >
+        <img src="images/photo-fallback.jpg" alt="Фото приклад" loading="lazy" width="800" height="450">
+    </picture>
+
+    <!-- PNG з прозорістю -->
+    <img src="images/logo-transparent.png" alt="Логотип PNG" loading="lazy" width="200" height="100" />
+
+    <!-- SVG спрайт (прихований) -->
+    <svg style="display:none;">
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <path d="M20.285 6.707l-11.39 11.39-5.16-5.16 1.42-1.415 3.74 3.74 9.97-9.97z"/>
+        </symbol>
+    </svg>
+
+    <!-- Використання SVG іконки зі спрайта -->
+    <svg width="50" height="50" role="img" aria-label="Іконка галочки">
+        <use xlink:href="#icon-check"></use>
+    </svg>
+</body>
+</html>
